@@ -1,0 +1,54 @@
+<div class="container text-center mt-3 mb-3 col-md-8">
+    <table class="table table-primary text-center bg-light mt-3 mb-3">
+        <tr>
+            <th class="h1 text text-danger" colspan="8">Toy Store ({{ total }})</th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                <form action="/admin/search" method="post">
+                    <input class="form-control" type="search" name="keyword" id="" required
+                        placeholder="Search by name">
+                </form>
+            </th>
+            <th colspan="3">
+                <a class="btn btn-primary" href="/admin/ascending">From lowest to highest</a>
+                <a class="btn btn-success" href="/admin/descending">From highest to lowest</a>
+            </th>
+            <th colspan="3">
+                <a class="btn btn-success" href="/add">Add</a>
+                <a class="btn btn-danger" href="/drop"
+                    onclick="return confirm('Are you sure to delete all toys ?');">Drop</a>
+                <a class="btn btn-danger" href="/toylist">Back</a>
+            </th>
+
+        </tr>
+        <tr class="cot">
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Quantity</th>
+            <th>Image</th>
+            <th>Detail</th>
+            <th style="color:brown">Function</th>
+        </tr>
+        {{#each toys }}
+        <tr>
+            <th>{{ name }}</th>
+            <th>${{ price }}</th>
+            <th>{{ category.name }}</th>
+            <th>{{ brand }}</th>
+            <th>{{quantity}}</th>
+            <th>
+                <img class="zoom" src="{{ image }}" width="100" height="100">
+            </th>
+            <th>{{ detail }}</th>
+            <th>
+                <a class="btn btn-warning" href="/edit/{{_id}}">Edit</a>
+                <a class="btn btn-danger" href="/delete/{{_id}}"
+                    onclick="return confirm('Are you sure to delete this toy ?');">Delete</a>
+            </th>
+        </tr>
+        {{/each}}
+    </table>
+</div>

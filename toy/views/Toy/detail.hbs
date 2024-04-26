@@ -1,0 +1,117 @@
+<head>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><span>Toy</span>Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/toylist">Toys</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<div class="container bootdey">
+    <div class="col-md-12">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <div class="pro-img-details">
+                        <img src="{{toy.image}}" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="pro-d-title">{{toy.name}}</h4>
+                    <p>Product Detail</p>
+                    <p>
+                        {{toy.detail}}
+                    </p>
+                    <div class="product_meta">
+                        <span class="posted_in">
+                            <strong>Categories:</strong>
+                            {{#each toy.category}}
+                            {{name}}
+                            {{/each}}
+                        </span>
+                    </div>
+                    <div class="m-bot15"> <strong>Price : </strong> <span class="pro-price"> ${{toy.price}}</span></div>
+                    <form action="/order" method="post">
+                        <div class="form-group">
+                            <label for="order_quantity">Quantity:</label>
+                            <input type="number" class="form-control" id="order_quantity" name="order_quantity"
+                                value="1" max="{{quantity}}" min="1">
+                        </div>
+                        <input type="hidden" name="id" value="{{ toy._id }}">
+                        <input type="hidden" name="price" value="{{ toy.price }}">
+                        <input class="btn btn-danger" type="submit" value="Order">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<style type="text/css">
+    body {
+        font-family: 'Teko', sans-serif;
+        margin-top: 50px;
+    }
+
+    .navbar {
+        background-color: white;
+    }
+
+    .navbar-nav a {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .navbar-light .navbar-brand {
+        color: black;
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .navbar-brand span {
+        color: violet;
+    }
+
+    .navbar-light .navbar-brand:focus,
+    .navbar-light .navbar-brand:hover {
+        color: #000;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #000;
+    }
+
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #000;
+    }
+
+    .border {
+        margin-left: 20px;
+    }
+
+    .pro-img-details img {
+        width: 75%;
+    }
+    .pro-price {
+        font-size: 18px;
+        padding: 0 10px;
+        color: red;
+    }
+</style>

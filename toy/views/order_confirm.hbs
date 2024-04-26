@@ -1,0 +1,36 @@
+<div class="col">
+   <div class="row">
+      <h1 class="text text-primary text-center">Toy ORDER</h1>
+   </div>
+   <div class="row">
+      <table class="table table-bordered text-center">
+         <tr>
+            <th colspan="2">
+               <img src="{{ toy.image }}" width="300" height="300">
+            </th>
+         </tr>
+         <tr> 
+            <th>Toy name</th>
+            <th>{{ toy.name }}</th>
+         </tr>
+         <tr>
+            <th>Toy price</th>
+            <th>${{ toy.price }}</th>
+         </tr>
+         <tr>
+            <th>Order quantity</th>
+            <th>{{ order_quantity }}</th>
+         </tr>
+         <tr>
+            <th>Total price</th>
+            <th>${{ total_price }}</th>
+         </tr>
+         <tr class="text-center">
+            <th colspan="2">
+               <a class="btn btn-danger" href="/toylist"
+               onclick="return confirm('Thank you for shopping at our shop');">Confirm</a>
+            </th>
+         </tr>
+      </table>
+   </div>
+</div>

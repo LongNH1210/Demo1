@@ -1,0 +1,39 @@
+<form class="bg-light text-center col-md-8" action="/add" method="post">
+    <div>
+        <h1 class="text text-primary">Add a new toy</h1>
+    </div>
+    <div class="form-group mt-3">
+        <label class="text text-success">Name</label>
+        <input class="form-control" type="text" name="name" required>
+    </div>
+    <div>
+        <label class="text text-success">Price</label>
+        <input class="form-control" type="number" name="price" required>
+    </div>
+    <label class="text text-success">Category</label>
+    <select name="category" id="category">
+        {{#each categories}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <div class="form-group mt-3">
+        <label class="text text-success">Brand</label>
+        <input class="form-control" type="text" name="brand" required>
+    </div>
+    <div class="form-group mt-3">
+        <label class="text text-success">Quantity</label>
+        <input class="form-control" type="number" name="quantity" required>
+    </div>
+    <div class="form-group mt-3">
+        <label class="text text-success">Image</label>
+        <input class="form-control" type="text" name="image" required>
+    </div>
+    <div class="form-group mt-3">
+        <label class="text text-success">Detail</label>
+        <input class="form-control" type="text" name="detail" required>
+    </div>
+    <div class="form-group mt-3">
+        <input class="btn btn-danger" type="submit" value="Add">
+        <a class="btn btn-danger" href="/admin">Back </a>
+    </div>
+</form>
